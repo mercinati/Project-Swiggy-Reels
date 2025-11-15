@@ -130,9 +130,59 @@ async function registerFoodpartner(req, res) {
 
 }
 
+async function loginFoodpartner(req, res) {
+
+    const { email, password } = req.body;
+
+    const foodpartner = await foodpartnerModel.findOne({
+        email
+    })
+
+    if(!foodpartner) {
+        return res.status(400).json({
+            message: "Wrong Email or password"
+        });
+    }
+
+    const isPasswordValid = await bcrypt.compare(password, foodpartner.password);
+
+    if(!isPasswordValid) {
+        return res.status(400).json({
+            message: "Wrong Email or password"
+        });
+    }
+
+    const token =jwt.sign({
+        id: foodpartner._id,
+    }, process.env.JWT_SECRET)
+
+    res.cookie("token", token)
+
+    res.status(200).json({
+        message: "Food Partner logged in successfully",
+        foodpartner: {
+            _id: foodpartner._id,
+            fullName: foodpartner.fullName,
+            email: foodpartner.email,
+        }
+    })
+}
+
+function logoutFoodpartner(req, res) { 
+
+    res.clearCookie("token");
+
+    res.status(200).json({
+        message: "Food Partner logged out successfully",
+    })
+}
+
 
 module.exports = {
     registerUser,
     loginUser,
-    logoutUser
+    logoutUser,
+    registerFoodpartner,
+    loginFoodpartner,
+    logoutFoodpartner
 }
