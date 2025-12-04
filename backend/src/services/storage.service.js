@@ -3,7 +3,7 @@ const fs = require("fs");
 
 const client = new ImageKit({
   publicKey: process.env.IMAGEKIT_PUBLIC_KEY,
-  privateKey: process.env.IMAGEKIT_PRIVATE_KEY, // This is the default and can be omitted
+  privateKey: process.env.IMAGEKIT_PRIVATE_KEY, 
   urlEndpoint: process.env.IMAGEKIT_URL_ENDPOINT,
 });
 
