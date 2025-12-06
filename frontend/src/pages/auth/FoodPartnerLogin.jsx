@@ -1,14 +1,14 @@
 import React from "react";
-import "../App.css";
-import "../assets/theme.css";
+import "../../App.css";
+import "../../styles/theme.css";
 import { Link } from "react-router-dom";
 
-export default function UserLogin() {
+export default function FoodPartnerLogin() {
   return (
     <div className="centered-container">
       <div className="blur-bg"></div>
       <form className="form-box" autoComplete="off">
-        <div className="form-title" style={{marginBottom: '1.2rem'}}>User Login</div>
+        <div className="form-title" style={{marginBottom: '1.2rem'}}>Food Partner Login</div>
         <div className="form-group">
           <label htmlFor="email">Email</label>
           <input type="email" id="email" name="email" placeholder="Enter your email" required />
@@ -20,7 +20,7 @@ export default function UserLogin() {
         <div className="form-action">
           <button type="submit">Login</button>
         </div>
-        <Link className="form-link" to="/user/register">Register</Link>
+        <Link className="form-link" to="/foodpartner/register">Register</Link>
       </form>
     </div>
   );

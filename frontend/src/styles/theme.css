@@ -1,4 +1,4 @@
-
+/* theme.css moved from assets to styles */
 :root {
   --color-bg-light: #f9f9f9;
   --color-bg-dark: #181818;
@@ -33,21 +33,5 @@
     --color-text: var(--color-text-light);
     --color-input-bg: var(--color-input-bg-light);
     --gradient-bg: var(--gradient-bg-light);
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: var(--color-bg-dark);
-    --color-text: var(--color-text-dark);
-    --color-input-bg: var(--color-input-bg-dark);
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --color-bg: var(--color-bg-light);
-    --color-text: var(--color-text-light);
-    --color-input-bg: var(--color-input-bg-light);
   }
 }

@@ -1,6 +1,6 @@
 import React from "react";
-import "../App.css";
-import "../assets/theme.css";
+import "../../App.css";
+import "../../styles/theme.css";
 import { Link } from "react-router-dom";
 
 export default function FoodPartnerRegister() {
@@ -16,7 +16,7 @@ export default function FoodPartnerRegister() {
         <div className="form-row">
           <div className="form-group">
             <label htmlFor="contact">Contact</label>
-            <input type="text" id="contact" name="contact" placeholder="Enter contact number" required />
+            <input type="text" id="contact" name="contact" placeholder="+91 1234xxxx90" required />
           </div>
           <div className="form-group">
             <label htmlFor="restaurant">Restaurant Name</label>
