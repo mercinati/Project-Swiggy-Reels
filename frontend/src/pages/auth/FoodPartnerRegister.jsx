@@ -2,14 +2,43 @@ import React from "react";
 import "../../App.css";
 import "../../styles/theme.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const FoodPartnerRegister = () => {
 
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const fullName = e.target.fullname.value;
+    const contact = e.target.contact.value;
+    const restaurantName = e.target.restaurant.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    const response = await axios.post("http://localhost:3000/api/auth/foodpartner/register", {
+      fullName,
+      contact,
+      restaurantName,
+      email,
+      password
+    },{
+      withCredentials: true
+    }).then( response => {
+      console.log(response.data);
+      navigate('/create-food');
+    }).catch( err => {
+      console.error(err);
+    });
+
+  }; 
 
   return (
     <div className="centered-container">
       <div className="blur-bg"></div>
-      <form className="form-box" autoComplete="off">
+      <form className="form-box" autoComplete="off" onSubmit={handleSubmit}>
         <div className="form-title" style={{marginBottom: '1.2rem'}}>Food Partner Registration</div>
         <div className="form-group">
           <label htmlFor="fullname">Full Name</label>

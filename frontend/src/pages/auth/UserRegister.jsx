@@ -3,8 +3,11 @@ import "../../App.css";
 import "../../styles/theme.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const UserRegister = () => {
+
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -13,11 +16,18 @@ const UserRegister = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    axios.post("http://localhost:3000/api/auth/user/register", {
+    const response = await axios.post("http://localhost:3000/api/auth/user/register", {
       fullName: name,
       email,
       password
+    },{
+      withCredentials: true
     })
+
+    console.log(response.data);
+
+    navigate('/')
+
   };
 
   return (
