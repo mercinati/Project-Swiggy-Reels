@@ -3,7 +3,9 @@ import "../../App.css";
 import "../../styles/theme.css";
 import { Link } from "react-router-dom";
 
-export default function UserLogin() {
+const UserLogin = () => {
+
+  
   return (
     <div className="centered-container">
       <div className="blur-bg"></div>
@@ -25,3 +27,5 @@ export default function UserLogin() {
     </div>
   );
 }
+
+export default UserLogin;

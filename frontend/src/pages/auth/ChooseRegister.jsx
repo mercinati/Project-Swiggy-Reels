@@ -1,7 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default function ChooseRegister() {
+const ChooseRegister = () => {
+
   return (
     <div className="centered-container">
       <div className="blur-bg"></div>
@@ -25,3 +26,5 @@ export default function ChooseRegister() {
     </div>
   );
 }
+
+export default ChooseRegister;

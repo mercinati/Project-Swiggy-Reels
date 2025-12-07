@@ -2,12 +2,28 @@ import React from "react";
 import "../../App.css";
 import "../../styles/theme.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-export default function UserRegister() {
+const UserRegister = () => {
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    const name = e.target.name.value;
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+
+    axios.post("http://localhost:3000/api/auth/user/register", {
+      fullName: name,
+      email,
+      password
+    })
+  };
+
   return (
     <div className="centered-container">
       <div className="blur-bg"></div>
-      <form className="form-box" autoComplete="off">
+      <form className="form-box" autoComplete="off" onSubmit={handleSubmit}>
         <div className="form-title" style={{marginBottom: '1.2rem'}}>User Registration</div>
         <div className="form-group">
           <label htmlFor="name">Name</label>
@@ -29,3 +45,5 @@ export default function UserRegister() {
     </div>
   );
 }
+
+export default UserRegister;
