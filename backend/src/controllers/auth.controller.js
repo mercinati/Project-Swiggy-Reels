@@ -5,6 +5,7 @@ const jwt = require('jsonwebtoken');
 
 async function registerUser(req, res) {
 
+    console.log(req.body);
     const { fullName, email, password } = req.body;
 
     const isUserAlreadyExists = await userModel.findOne({
@@ -92,7 +93,7 @@ function logoutUser(req, res) {
 
 async function registerFoodpartner(req, res) {
 
-    const { fullName, email, password } = req.body;
+    const { fullName, contact, restaurantName, email, password } = req.body;
 
     const isFoodpartnerAlreadyExists = await foodpartnerModel.findOne({
         email
@@ -109,7 +110,9 @@ async function registerFoodpartner(req, res) {
     const foodpartner = await foodpartnerModel.create({
         fullName,
         email,
-        password: hashedPassword
+        password: hashedPassword,
+        contact,
+        restaurantName
     });
 
     const token =jwt.sign({
@@ -124,6 +127,8 @@ async function registerFoodpartner(req, res) {
             _id: foodpartner._id,
             fullName: foodpartner.fullName,
             email: foodpartner.email,
+            contact: foodpartner.contact,
+            restaurantName: foodpartner.restaurantName
         }
     })
 
