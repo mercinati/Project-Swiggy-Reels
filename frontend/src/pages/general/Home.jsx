@@ -28,7 +28,7 @@ const Home = () => {
       axios.get("http://localhost:3000/api/food", { withCredentials: true })
       .then((response) => {
         const data = response.data.food;
-        console.log(data);
+        
         setVideos(data);
 
         setExpanded(Array(data.length).fill(false));
