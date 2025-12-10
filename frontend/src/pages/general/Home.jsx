@@ -30,7 +30,7 @@ const Home = () => {
         const data = response.data.food;
         
         setVideos(data);
-
+        
         setExpanded(Array(data.length).fill(false));
         setOverflowing(Array(data.length).fill(false));
       })
@@ -96,7 +96,7 @@ const Home = () => {
                     </>
                   )}
                 </div>
-                <Link className="visit-store-btn" to={"/foodpartner/" + video.foodPartner}>Visit Store</Link>
+                <Link className="visit-store-btn" to={"/foodpartner/" + video.FoodPartner}>Visit Store</Link>
               </div>
             </div>
           </div>

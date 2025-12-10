@@ -23,7 +23,7 @@ const FoodPartnerLogin = () => {
     })
       console.log(response.data);
 
-      navigate('/create-food');
+      navigate('/foodpartner/' + response.data.foodpartner._id);
     
     
   }

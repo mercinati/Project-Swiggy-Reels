@@ -27,7 +27,7 @@
   height: 110px;
   border-radius: 50%;
   /* background: var(--color-primary); */
-  background: rgb(129, 133, 137);
+  background: rgb(110, 112, 114);
   flex-shrink: 0;
 }
 
@@ -82,7 +82,7 @@
 
 .video-box {
   /* background: var(--color-primary); */
-  background: rgb(129, 133, 137);
+  /* background: rgb(129, 133, 137); */
   height: 150px;
   display: flex;
   justify-content: center;
