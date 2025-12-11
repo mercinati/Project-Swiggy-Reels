@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../../styles/Profile.css"; // Create this CSS file for styles
 import "../../styles/theme.css"; // For theme styles
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 
 const Profile = () => {
@@ -66,9 +66,12 @@ const Profile = () => {
               muted
             ></video>
 
+
           </div>
         ))}
       </div>
+             {/* FLOATING ADD BUTTON */}
+            <Link className="add-btn" to={"/create-food"}> + </Link>
     </div>
   );
 };
