@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import "../../styles/CreateFood.css"; // Create this CSS file for styles
 import axios from "axios";
-
+import { server } from "../../config/server";
 
 const CreateFood = () => {
+
   /* ------------------------------------------
       ALL REACT STATES (LOGIC BLOCK)
   ------------------------------------------- */
@@ -77,7 +78,7 @@ const CreateFood = () => {
       formData.append("video", video);
 
       const res = await axios.post(
-        "http://localhost:3000/api/food/",
+        `${server}/api/food/`,
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },
@@ -93,12 +94,14 @@ const CreateFood = () => {
       setDescription("");
       setVideo(null);
       setVideoPreview(null);
-
+      
     } catch (err) {
       console.error(err);
       setError("Something went wrong");
       setLoading(false);
     }
+
+
   };
 
   /* ------------------------------------------

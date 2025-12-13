@@ -4,6 +4,7 @@ import "../../styles/theme.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { server } from "../../config/server";
 
 const FoodPartnerRegister = () => {
 
@@ -18,7 +19,7 @@ const FoodPartnerRegister = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    const response = await axios.post("http://localhost:3000/api/auth/foodpartner/register", {
+    const response = await axios.post(`${server}/api/auth/foodpartner/register`, {
       fullName,
       contact,
       restaurantName,
@@ -28,7 +29,7 @@ const FoodPartnerRegister = () => {
       withCredentials: true
     }).then( response => {
       console.log(response.data);
-      navigate('/create-food');
+      navigate('/foodpartner/:id');
     }).catch( err => {
       console.error(err);
     });

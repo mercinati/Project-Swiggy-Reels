@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import '../../styles/Home.css'; // Create this CSS file for styles
-
+import { server } from "../../config/server";
 
 const Home = () => {
   const containerRef = useRef(null);
@@ -25,10 +25,10 @@ const Home = () => {
 
     React.useEffect(() => {
 
-      axios.get("http://localhost:3000/api/food", { withCredentials: true })
+      axios.get(`${server}/api/food/`, { withCredentials: true })
       .then((response) => {
         const data = response.data.food;
-        
+        console.log(data);
         setVideos(data);
         
         setExpanded(Array(data.length).fill(false));

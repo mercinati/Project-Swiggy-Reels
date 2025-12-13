@@ -14,12 +14,12 @@ const AppRoutes = () => {
   return (
     <Router>
       <Routes>
-        <Route path='/register' element={<ChooseRegister />} />
+        <Route path='/' element={<ChooseRegister />} />
         <Route path='/user/register' element={<UserRegister />} />
         <Route path='/user/login' element={<UserLogin />} />
         <Route path='/foodpartner/register' element={<FoodPartnerRegister />} />
         <Route path='/foodpartner/login' element={<FoodPartnerLogin />} />
-        <Route path='/' element={<Home />} /> //for users
+        <Route path='/home' element={<Home />} /> //for users
         <Route path='/create-food' element={<CreateFood />} /> //for food partners
         <Route path='/foodpartner/:id' element={<Profile/>}/>
       </Routes>

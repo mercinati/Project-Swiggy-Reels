@@ -3,6 +3,7 @@ import "../../styles/Profile.css"; // Create this CSS file for styles
 import "../../styles/theme.css"; // For theme styles
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import { server } from "../../config/server.js";
 
 const Profile = () => {
   const { id } = useParams();
@@ -10,7 +11,7 @@ const Profile = () => {
   const [videos, setvideos] = useState([])
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/api/food-partner/${id}`, { withCredentials: true })
+    axios.get(`${server}/api/food-partner/${id}`, { withCredentials: true })
     .then((res) => {  
       const fp = res.data;
 

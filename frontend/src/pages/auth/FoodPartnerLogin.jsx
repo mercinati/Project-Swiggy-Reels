@@ -4,6 +4,7 @@ import "../../styles/theme.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import{ useNavigate } from "react-router-dom";
+import { server } from "../../config/server";
 
 const FoodPartnerLogin = () => {
 
@@ -15,7 +16,7 @@ const FoodPartnerLogin = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    const response = await axios.post("http://localhost:3000/api/auth/foodpartner/login", {
+    const response = await axios.post(`${server}/api/auth/foodpartner/login`, {
       email,
       password
     },{
@@ -24,8 +25,7 @@ const FoodPartnerLogin = () => {
       console.log(response.data);
 
       navigate('/foodpartner/' + response.data.foodpartner._id);
-    
-    
+
   }
 
   return (

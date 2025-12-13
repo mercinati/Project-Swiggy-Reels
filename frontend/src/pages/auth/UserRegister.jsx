@@ -4,6 +4,7 @@ import "../../styles/theme.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { server } from "../../config/server";
 
 const UserRegister = () => {
 
@@ -16,7 +17,7 @@ const UserRegister = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    const response = await axios.post("http://localhost:3000/api/auth/user/register", {
+    const response = await axios.post(`${server}/api/auth/user/register`, {
       fullName: name,
       email,
       password
@@ -26,7 +27,7 @@ const UserRegister = () => {
 
     console.log(response.data);
 
-    navigate('/')
+    navigate('/home') //Redirect to home page after registration
 
   };
 

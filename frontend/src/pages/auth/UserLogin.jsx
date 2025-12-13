@@ -4,6 +4,7 @@ import "../../styles/theme.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { server } from "../../config/server";
 
 const UserLogin = () => {
 
@@ -15,7 +16,7 @@ const UserLogin = () => {
     const email = e.target.email.value;
     const password = e.target.password.value;
 
-    const response = await axios.post("http://localhost:3000/api/auth/user/login", {
+    const response = await axios.post(`${server}/api/auth/user/login`, {
       email,
       password
     },{
@@ -24,7 +25,7 @@ const UserLogin = () => {
 
     console.log(response.data);
 
-    navigate('/') //Redirect to home page after login
+    navigate('/home') //Redirect to home page after login
 
   }
   
