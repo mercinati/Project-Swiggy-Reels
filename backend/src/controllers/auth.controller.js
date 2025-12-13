@@ -29,7 +29,12 @@ async function registerUser(req, res) {
         id: user._id,
     }, process.env.JWT_SECRET)
 
-    res.cookie("token", token)
+    res.cookie("token", token, {
+        httpOnly: true,
+        secure: true,        // REQUIRED (Render = HTTPS)
+        sameSite: "None",    // REQUIRED (cross-origin)
+        maxAge: 7 * 24 * 60 * 60 * 1000
+    });
 
     res.status(201).json({
         message: "User registered successfully",
@@ -68,7 +73,12 @@ async function loginUser(req, res) {
         id: user._id,
     }, process.env.JWT_SECRET)
 
-    res.cookie("token", token)
+    res.cookie("token", token, {
+        httpOnly: true,
+        secure: true,        // REQUIRED (Render = HTTPS)
+        sameSite: "None",    // REQUIRED (cross-origin)
+        maxAge: 7 * 24 * 60 * 60 * 1000
+    });
 
     res.status(200).json({
         message: "User logged in successfully",
@@ -118,7 +128,12 @@ async function registerFoodpartner(req, res) {
         id: foodpartner._id,
     }, process.env.JWT_SECRET)
 
-    res.cookie("token", token)
+    res.cookie("token", token, {
+        httpOnly: true,
+        secure: true,        // REQUIRED (Render = HTTPS)
+        sameSite: "None",    // REQUIRED (cross-origin)
+        maxAge: 7 * 24 * 60 * 60 * 1000
+    });
 
     res.status(201).json({
         message: "Food Partner registered successfully",
@@ -165,7 +180,7 @@ async function loginFoodpartner(req, res) {
         secure: true,        // REQUIRED (Render = HTTPS)
         sameSite: "None",    // REQUIRED (cross-origin)
         maxAge: 7 * 24 * 60 * 60 * 1000
-});
+    });
 
     res.status(200).json({
         message: "Food Partner logged in successfully",
