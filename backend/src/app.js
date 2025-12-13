@@ -10,7 +10,7 @@ const cors = require('cors');
 const app = express();
 app.use(cors({
     origin: [
-        'https://project-swiggy-reels.vercel.app/',
+        'https://project-swiggy-reels.vercel.app',
         'http://localhost:5173'
     ],
     methods: "GET,POST,PUT,DELETE",
